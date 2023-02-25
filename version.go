@@ -18,7 +18,7 @@ type Info struct {
 	Commit     string
 	Branch     string
 	BuildDate  string
-	BuiltTime  string
+	BuildTime  string
 	CodeName   string
 	TargetOs   string
 	TargetArch string
