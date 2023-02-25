@@ -16,3 +16,12 @@ builds:
       - -X github.com/rkgarcia/version.targetOs={{.Runtime.Goos}}
       - -X github.com/rkgarcia/version.targetArch={{.Runtime.Goarch}}
 ```
+
+Now we can use in out application something like:
+```go
+information := version.GetInfo()
+log.Println("Running app version:",
+    information.Version, information.Commit, information.Branch,
+    information.BuildDate, information.BuildTime, information.CodeName,
+    information.TargetOs, information.TargetArch)
+```
