@@ -1,5 +1,7 @@
 package version
 
+import "runtime"
+
 var (
 	version    = "version-dev"
 	commit     = "none-dev"
@@ -9,6 +11,7 @@ var (
 	codeName   = "name-dev"
 	targetOs   = "os-dev"
 	targetArch = "arch-dev"
+	goVersion  = "go-dev"
 )
 
 var info *Info
@@ -22,6 +25,7 @@ type Info struct {
 	CodeName   string
 	TargetOs   string
 	TargetArch string
+	GoVersion  string
 }
 
 func GetInfo() *Info {
@@ -35,6 +39,7 @@ func GetInfo() *Info {
 			codeName,
 			targetOs,
 			targetArch,
+			runtime.Version(),
 		}
 	}
 	return info
