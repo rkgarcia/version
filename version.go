@@ -2,14 +2,15 @@ package version
 
 import (
 	"runtime"
-	"time"
 )
 
 var (
-	version  = "version-dev"
-	commit   = "none-dev"
-	branch   = "branch-dev"
-	codeName = "name-dev"
+	version   = "version-dev"
+	commit    = "none-dev"
+	branch    = "branch-dev"
+	codeName  = "name-dev"
+	buildDate = "build-date"
+	buildTime = "build-time"
 )
 
 var info *Info
@@ -28,13 +29,12 @@ type Info struct {
 
 func GetInfo() *Info {
 	if nil == info {
-		today := time.Now()
 		info = &Info{
 			version,
 			commit,
 			branch,
-			today.Format("02-01-2006"),
-			today.Format("15:04:05"),
+			buildDate,
+			buildTime,
 			codeName,
 			runtime.GOOS,
 			runtime.GOARCH,
